@@ -1,4 +1,4 @@
-// Created Jiri Remar
+// Created Jiri Remar owner
 import java.util.Scanner;
 
 public class Main {
