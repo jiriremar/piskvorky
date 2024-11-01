@@ -45,20 +45,37 @@ public class Main {
         eraseTable(gameField);
         startIntro();
         showTable(gameField);
-
+        String checkFreePosition = "free";
         while (true) {                                // prvni hrac
             while (true) {
-                System.out.println("Hraje první hráč.");
+                System.out.println("Hraje první hráč. X ");
                 System.out.print("Zadej číslo: ");
                 try {
                     numberOfField = scanner.nextInt();
                     if (numberOfField >= 1 && numberOfField <= 9) {
-                        break;
+                        switch (numberOfField) {
+                            case 1 -> checkFreePosition = gameField[0][0];
+                            case 2 -> checkFreePosition = gameField[0][1];
+                            case 3 -> checkFreePosition = gameField[0][2];
+                            case 4 -> checkFreePosition = gameField[1][0];
+                            case 5 -> checkFreePosition = gameField[1][1];
+                            case 6 -> checkFreePosition = gameField[1][2];
+                            case 7 -> checkFreePosition = gameField[2][0];
+                            case 8 -> checkFreePosition = gameField[2][1];
+                            case 9 -> checkFreePosition = gameField[2][2];
+                            default -> System.out.println();
+                        }
+                        if (checkFreePosition == " " || checkFreePosition == " "){
+                            break;
+                        }else {
+                            System.out.println("Toto pole je už obsazené");
+                        }
+
                     } else {
-                        System.out.println("Neplatná numberOfField");
+                        System.out.println("Neplatná volba");
                     }
                 } catch (Exception e) {
-                    System.out.println("Neplatná numberOfField");
+                    System.out.println("Neplatná volba");
                     scanner.nextLine();
                 }
             }
@@ -91,15 +108,36 @@ public class Main {
             }
             moveNumber++;
             showTable(gameField);
+            if (moveNumber == 9) {
+                System.out.println("NEROZHODNĚ");
+                System.exit(0);
+            }
 
             // Druhy hrac
             while (true) {
-                System.out.println("Hraje druhý hráč.");
+                System.out.println("Hraje druhý hráč. O ");
                 System.out.print("Zadej číslo: ");
                 try {
                     numberOfField = scanner.nextInt();
                     if (numberOfField >= 1 && numberOfField <= 9) {
-                        break;
+                        switch (numberOfField) {
+                            case 1 -> checkFreePosition = gameField[0][0];
+                            case 2 -> checkFreePosition = gameField[0][1];
+                            case 3 -> checkFreePosition = gameField[0][2];
+                            case 4 -> checkFreePosition = gameField[1][0];
+                            case 5 -> checkFreePosition = gameField[1][1];
+                            case 6 -> checkFreePosition = gameField[1][2];
+                            case 7 -> checkFreePosition = gameField[2][0];
+                            case 8 -> checkFreePosition = gameField[2][1];
+                            case 9 -> checkFreePosition = gameField[2][2];
+                            default -> System.out.println();
+                        }
+                        if (checkFreePosition == " " || checkFreePosition == " "){
+                            break;
+                        }else {
+                            System.out.println("Toto pole je už obsazené");
+                        }
+
                     } else {
                         System.out.println("Neplatná volba");
                     }
@@ -137,11 +175,6 @@ public class Main {
             }
             moveNumber++;
             showTable(gameField);
-
-            if (moveNumber == 9) {
-                System.out.println("NEROZHODNĚ");
-                System.exit(0);
-            }
 
         }
     }
