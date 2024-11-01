@@ -1,4 +1,4 @@
-import java.util.Arrays;
+// Created Jiri Remar
 import java.util.Scanner;
 
 public class Main {
